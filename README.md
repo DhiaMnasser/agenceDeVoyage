@@ -42,7 +42,7 @@ JDK 1.8+
 
 Docker Desktop
 
-#Microservice Running Process:
+## Microservice Running Process:
 First we need to run Eureka
 
 Second we need to run our MSs
