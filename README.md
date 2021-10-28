@@ -60,7 +60,9 @@ we need to add @EnableEurekaServer annotation.
 The @EnableEurekaServer annotation is used to make your Spring Boot application acts as a Eureka Server.
 
 @SpringBootApplication
+
 @EnableEurekaServer
+
 public class EurekaApplication {
 
 	public static void main(String[] args) {
@@ -76,6 +78,7 @@ we should make sure Spring cloud Eureka server dependency is added in our build 
 	<groupId>org.springframework.cloud</groupId>
 	<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 </dependency>
+
 By default, the Eureka Server registers itself into the discovery. we added the below given configuration into our application.properties
 
 ## Give a name to the eureka server
@@ -105,9 +108,13 @@ Zull-filters
 Now add the @EnableZuulProxy and @EnableEurekaClient annotation on Spring boot application class present in src folder. With this annotation, this artifact will act like a Zuul service proxy and will enable all the features of a API gateway layer as described before. We will then add some filters and route configurations.
 
 @SpringBootApplication
+
 @EnableEurekaClient
+
 @EnableZuulProxy
+
 // @EnableFeignClients
+
 public class ZuulServerApplication {
 
 	public static void main(String[] args) {
