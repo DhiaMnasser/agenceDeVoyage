@@ -1,0 +1,33 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Client </h3>
+    <form (ngSubmit) = "onSubmit()">
+
+      <div class="form-group">
+        <label> Nom</label>
+        <input type="text" class ="form-control" id = "nom"
+            [(ngModel)] = "Client.nom" name = "nom">
+    </div>
+
+    <div class="form-group">
+        <label>Prenom</label>
+        <input type="text" class ="form-control" id = "prenom"
+            [(ngModel)] = "Client.prenom" name = "prenom">
+    </div>
+
+  <div class="form-group">
+    <label>Num passport</label>
+    <input type="text" class ="form-control" id = "numpassport"
+           [(ngModel)] = "Client.numpassport" name = "numpassport">
+  </div>
+
+
+  <div class="form-group">
+        <label> Tel</label>
+        <input type="text" class ="form-control" id = "tel"
+            [(ngModel)] = "Client.tel" name = "tel">
+    </div>
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+
+    </form>
+    </div>

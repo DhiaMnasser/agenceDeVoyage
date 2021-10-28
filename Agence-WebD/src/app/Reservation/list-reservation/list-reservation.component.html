@@ -1,0 +1,24 @@
+<h2> Reservations List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> dateArrive</th>
+            <th> dateReservation</th>
+            <th> duree</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let a of Reservations" >
+            <td> {{ a.dateArrive }} </td>
+            <td> {{ a.dateReservation }} </td>
+            <td> {{ a.duree }} </td>
+            <td>
+                <button (click) = "updateReservation(a.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteReservation(a.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "ReservationDetails(a.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a routerLink="/add/Reservation"><button class="btn btn-success pull-right" > Add Reservation</button></a>

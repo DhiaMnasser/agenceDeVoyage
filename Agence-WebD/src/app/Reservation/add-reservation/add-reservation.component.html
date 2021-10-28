@@ -1,0 +1,26 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Create Reservations </h3>
+    <form (ngSubmit) = "onSubmit()">
+
+      <div class="form-group">
+        <label> duree</label>
+        <input type="text" class ="form-control" id = "duree"
+               [(ngModel)] = "Reservation.duree" name = "duree">
+      </div>
+
+      <div class="form-group">
+        <label>dateReservation</label>
+        <input type="text" class ="form-control" id = "dateReservation"
+               [(ngModel)] = "Reservation.dateReservation" name = "dateReservation">
+      </div>
+
+      <div class="form-group">
+        <label> dateArrive</label>
+        <input type="text" class ="form-control" id = "dateArrive"
+               [(ngModel)] = "Reservation.dateArrive" name = "dateArrive">
+      </div>
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+
+    </form>
+    </div>

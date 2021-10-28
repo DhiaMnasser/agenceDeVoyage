@@ -1,0 +1,39 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Facture </h3>
+    <form (ngSubmit) = "onSubmit()">
+
+      <div class="form-group">
+        <label> designation</label>
+        <input type="text" class ="form-control" id = "designation"
+            [(ngModel)] = "Facture.designation" name = "designation">
+    </div>
+
+    <div class="form-group">
+        <label>prixTotale</label>
+        <input type="text" class ="form-control" id = "prixTotale"
+            [(ngModel)] = "Facture.prixTotale" name = "prixTotale">
+    </div>
+
+    <div class="form-group">
+        <label> prixUnitaire</label>
+        <input type="text" class ="form-control" id = "prixUnitaire"
+            [(ngModel)] = "Facture.prixUnitaire" name = "prixUnitaire">
+    </div>
+
+  <div class="form-group">
+    <label> quantite</label>
+    <input type="text" class ="form-control" id = "quantite"
+           [(ngModel)] = "Facture.quantite" name = "quantite">
+  </div>
+
+  <div class="form-group">
+    <label>totale</label>
+    <input type="text" class ="form-control" id = "totale"
+           [(ngModel)] = "Facture.totale" name = "totale">
+  </div>
+
+
+        <button class = "btn btn-success" type ="submit">Submit</button>
+
+    </form>
+    </div>

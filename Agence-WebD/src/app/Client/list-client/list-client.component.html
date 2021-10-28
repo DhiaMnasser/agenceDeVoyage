@@ -1,0 +1,24 @@
+<h2> Client List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> nom</th>
+            <th> prenom </th>
+            <th> tel</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let a of Clients" >
+            <td> {{ a.nom }} </td>
+            <td> {{ a.prenom }} </td>
+            <td> {{ a.tel }} </td>
+            <td>
+                <button (click) = "updateClient(a.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteClient(a.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "ClientDetails(a.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a routerLink="/add/Client"><button class="btn btn-success pull-right" > Add Client</button></a>

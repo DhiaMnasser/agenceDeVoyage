@@ -1,0 +1,24 @@
+<h2> Facture List</h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> totale</th>
+            <th> designation </th>
+            <th> prixTotale</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let a of Factures" >
+            <td> {{ a.totale }} </td>
+            <td> {{ a.designation }} </td>
+            <td> {{ a.prixTotale }} </td>
+            <td>
+                <button (click) = "updateFacture(a.id)" class = "btn btn-info"> Update</button>
+                <button (click) = "deleteFacture(a.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <button (click) = "FactureDetails(a.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a routerLink="/add/Facture"><button class="btn btn-success pull-right" > Add Facture</button></a>
