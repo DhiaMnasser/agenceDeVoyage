@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {check, validationResult}= require('express-validator/check');
-const Reclamation = require('../../models/Hotel');
+const Hotel = require('../../models/Hotel');
 //@route Post api/hotel
 //@desc Create hotel
 //@access Private
@@ -26,6 +26,7 @@ async(req,res)=>{
     });
     //save
     await newHotel.save();
+    res.status(200).json(newHotel);
     }
     catch(err){
         console.error(err.message);

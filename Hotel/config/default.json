@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://nada:nada123@msreclamation.djccq.mongodb.net/test"
+    "mongoURI": "mongodb+srv://dhia:dhia@cluster0.pqdmt.mongodb.net/ms?retryWrites=true&w=majority"
    
 }
