@@ -1,4 +1,4 @@
-#Description
+# Description
 ## We have chosen as Subject "Travel agency". 
 
 The idea is to transform a database in which there is information about the travel agency to a set of microservices. 
@@ -12,7 +12,7 @@ The frameworks are Spring Boot for the Backend and Angular as the Frontend.
 The servers are: Eureka, Zuul and Config
 
 
-#Overview
+# Overview
 The architecture is composed by eight services:
 Eureka: Service Discovery Server created with Eureka
 
@@ -26,7 +26,7 @@ MS-client: Simple REST service created with NodeJS,mongodb
 
 Aero: Simple REST service created with Spring Boot, Spring Data JPA, H2
 
-#Tools :
+# Tools :
 Maven 3.0+
 
 IDE STS-3.4.9-RELEASE Eclipse Visual Studio.
@@ -39,10 +39,15 @@ Docker Desktop
 
 #Microservice Running Process:
 First we need to run Eureka
-Second we need to run personnel,ReservationMS,MS-client and Aero
+
+Second we need to run our MSs
+
 Finally we need to run zuul-server, if we did run zuul-server before running the microservices then we have to wait approximately 10 second
-Eureka Service
-Eureka Server is an application that holds the information about all client-service applications. Every Micro service will register into the Eureka server and Eureka server knows all the client applications running on each port and IP address. Eureka Server is also known as Discovery Server.
+
+## Eureka Service
+Eureka Server is an application that holds the information about all client-service applications. Every Micro service will register into the Eureka server and Eureka server knows all the client applications running on each port and IP address. 
+
+Eureka Server is also known as Discovery Server.
 
 Implementing a Eureka Server for service registry is as easy as
 we need to add @EnableEurekaServer annotation. 
@@ -68,23 +73,23 @@ we should make sure Spring cloud Eureka server dependency is added in our build 
 </dependency>
 By default, the Eureka Server registers itself into the discovery. we added the below given configuration into our application.properties
 
-# Give a name to the eureka server
+## Give a name to the eureka server
 spring.application.name=eureka-service
-# default port for eureka server
+## default port for eureka server
 server.port=8761
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 
 
 
-# eureka by default will register itself as a client. So, we need to set it to false.
-# What's a client server? See other microservices personnel,ReservationMS,MS-client,CandidateMS,and Aero
+## eureka by default will register itself as a client. So, we need to set it to false.
+## Client MS
 eureka.client.register-with-eureka=true
 eureka.client.fetch-registry=false
-API Gateway Service
+### API Gateway Service
 A common problem, when building microservices, is to provide a unique gateway to the client applications of our system. The fact that our services are split into small microservices apps that shouldn’t be visible to users otherwise it may result in substantial development/maintenance efforts. Also there are scenarios when whole ecosystem network traffic may be passing through a single point which could impact the performance of the cluster.
 
-Zuul Components
+### Zuul Components
 Zuul has mainly four types of filters that enable us to intercept the traffic in different timeline of the request processing for any particular transaction. We can add any number of filters for a particular url pattern.
 
 pre filters – are invoked before the request is routed.
@@ -93,7 +98,7 @@ route filters – are used to route the request.
 error filters – are invoked when an error occurs while handling the request.
 Zull-filters
 
-##Enable Zuul Service Proxy
+## Enable Zuul Service Proxy
 Now add the @EnableZuulProxy and @EnableEurekaClient annotation on Spring boot application class present in src folder. With this annotation, this artifact will act like a Zuul service proxy and will enable all the features of a API gateway layer as described before. We will then add some filters and route configurations.
 
 @SpringBootApplication
@@ -136,10 +141,9 @@ public class ZuulServerApplication {
 Zuul routes configuration
 Open application.properties and add below entries-
 
-spring.application.name= zuul-service
-#Will start the gateway server @8762
+spring.application.name= zuul-service Will start the gateway server @8762
 server.port= 8762
-#eureka config
+# eureka config
 eureka.client.serviceUrl.defaultZone= http://discovery:8761/eureka/
 #eureka.client.serviceUrl.defaultZone= ${EUREKA_URI:http://localhost:8761/eureka}
 
@@ -157,10 +161,10 @@ eureka.instance.preferIpAddress=true
 eureka.client.registerWithEureka=true
 eureka.client.fetchRegistry=true
 
-##Add Zuul Filters
+## Add Zuul Filters
 We will now add few filters as we have already described, Zuul supports 4 types of filters namely route,error,post,pre. Here we will create each type of filters.
 
-##route filter
+## route filter
 public class RouteFilter extends ZuulFilter {
 
 	@Override
@@ -185,7 +189,7 @@ public class RouteFilter extends ZuulFilter {
 	}
 
 }
-##Error filter
+## Error filter
 public class ErrorFilter extends ZuulFilter {
 
 	@Override
@@ -210,7 +214,7 @@ public class ErrorFilter extends ZuulFilter {
 	}
 
 }
-##Post filter
+## Post filter
 public class PostFilter extends ZuulFilter {
 
 	@Override
@@ -248,7 +252,7 @@ public class PostFilter extends ZuulFilter {
 	}
 
 }
-##Pre filter
+## Pre filter
 public class PreFilter extends ZuulFilter {
 
 	@Override
@@ -278,7 +282,7 @@ public class PreFilter extends ZuulFilter {
 	}
 
 }
-##Micro Service Spring
+## Micro Service Spring
 Micro Service Facture, Client, Réservation :
 
 ( POST )- /api/../add => Ajouter 
@@ -287,7 +291,7 @@ Micro Service Facture, Client, Réservation :
 ( GET ) - /api/../list => Afficher la liste des données
 ( GET ) - /api/../get/{id} => Afficher les détails d'un seul donnée
 
-#Micro Service Node 
+## Micro Service Node 
 Micro Service Hotel :
 
 ( POST )- /api/hotel => Ajouter 
@@ -295,5 +299,14 @@ Micro Service Hotel :
 ( DELETE ) - /api/hotel/{id} => Suprrimer 
 ( GET ) - /api/hotel => Afficher la liste entières des Hôtels
 ( GET ) - /api/hotel/{id} => Afficher les détails d'un Hôtel
+
+## Config Server
+Config Served is used for all MS, already configured.
+
+## Angular 
+Angular is a platform and framework for building single-page client applications using HTML and TypeScript. Angular is written in TypeScript. It implements core and optional functionality as a set of TypeScript libraries that you import into your applications.
+
+More than 15 componenets where used.
+
 
 
