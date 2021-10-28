@@ -71,7 +71,18 @@ services:
     ports:
     - "3006:8080"
     image: "facture-service"
-    
+ 
+  Hotel:
+    container_name: hotel
+    image: "hotel-service"
+    build: ../../Hotel
+    ports:
+      - "5000:5000"
+    depends_on:
+      - discovery
+      - config
+      - zuul-server
+    command: "node ./server.js"
 
 
  
