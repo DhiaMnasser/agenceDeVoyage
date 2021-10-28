@@ -18,13 +18,13 @@ Eureka: Service Discovery Server created with Eureka
 
 zuul-server: API Gateway created with Zuul that uses the discovery-service to send the requests to the services. It uses Ribbon as a Load Balancer
 
-personnel: Simple REST service created with Spring Boot, Spring Data JPA, H2
+Client: Simple REST service created with Spring Boot, Spring Data JPA, H2
 
-ReservationMS: Simple REST service created with Spring Boot, Spring Data JPA, H2
+Reservation: Simple REST service created with Spring Boot, Spring Data JPA, H2
 
-MS-client: Simple REST service created with NodeJS,mongodb
+Hotel: Simple REST service created with NodeJS,mongodb
 
-Aero: Simple REST service created with Spring Boot, Spring Data JPA, H2
+Facture: Simple REST service created with Spring Boot, Spring Data JPA, H2
 
 # Tools :
 Maven 3.0+
