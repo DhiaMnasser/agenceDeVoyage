@@ -85,9 +85,7 @@ server.port=8761
 eureka.client.register-with-eureka=false
 eureka.client.fetch-registry=false
 
-
-
-## eureka by default will register itself as a client. So, we need to set it to false.
+eureka by default will register itself as a client. So, we need to set it to false.
 ## Client MS
 eureka.client.register-with-eureka=true
 eureka.client.fetch-registry=false
